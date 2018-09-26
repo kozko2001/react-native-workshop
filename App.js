@@ -1,21 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View, Button } from 'react-native'
 
 export default class App extends React.Component {
-  render() {
+  constructor () {
+    super()
+    this.state = {
+      hello: false
+    }
+  }
+
+  onClick () {
+    this.setState({ hello: true })
+  }
+
+  render () {
+    let message = ''
+    if (this.state.hello) {
+      message = 'Hello world!'
+    }
+
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text>{message}</Text>
+        <Button title="ClickMe" onPress={() => this.onClick()}/>
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E06666',
+    backgroundColor: '#eeeeee',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    justifyContent: 'center'
+  }
+})
