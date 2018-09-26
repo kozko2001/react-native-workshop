@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native'
 
 export default class App extends React.Component {
   constructor () {
@@ -22,7 +22,14 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>{message}</Text>
-        <Button title="ClickMe" onPress={() => this.onClick()}/>
+        <TouchableHighlight onPress={() => this.onClick()}>
+          <Image
+            style={{ width: 200, height: 100 }}
+            source={require('./assets/button.png')}
+            resizeMode="cover"
+            onPress={() => this.onClick()}
+          />
+        </TouchableHighlight>
       </View>
     )
   }
